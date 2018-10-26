@@ -1,0 +1,13 @@
+.info {
+  color: blueviolet;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+#avatar {
+  width: 75px
+}
+
+.form {
+  padding: 10px;
+}

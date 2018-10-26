@@ -1,6 +1,26 @@
-import numeral from 'numeral';
-import './index.css';
+import React from 'react';
+import ReactDom from 'react-dom';
+import { CardList, Form } from 'Components';
 
-const cost = numeral(1000).format('$0,0.00')
+class App extends React.Component{
+  state = {
+    users: []
+  }
 
-console.log(`The cost is ${cost}`) // eslint-disable-line  no-console
+  addNewData = (newUser) => {
+    this.setState(prevState => ({
+      users: prevState.users.concat(newUser)
+    }))
+
+  }
+  render(){
+    return(
+      <div>
+        <Form onSubmit={this.addNewData}/>
+        <CardList users={this.state.users}/>
+     </div>
+    )
+  }
+}
+
+ReactDom.render(<App />, document.getElementById('root'))
